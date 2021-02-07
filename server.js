@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+const chapterRouter = require('./routersModel/chapterRouter');
 
 
 const PORT = process.env.PORT || 5000;
@@ -10,6 +11,8 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 server.use(helmet());
+
+server.use('/chapter', chapterRouter);
 
 server.get('/', (req, res, next) => {
     res.status(200).json({
