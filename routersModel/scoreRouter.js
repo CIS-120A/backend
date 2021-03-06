@@ -14,6 +14,7 @@ router.post('/', async (req, res, next) => {
        }
 
        let addScore = await Score.enterScore(data);
+
        res.status(201).json(addScore)
 
    } catch (e) {

@@ -5,10 +5,11 @@ class ScoreModel extends BaseModel {
     constructor(table) {
         super(table);
     }
-
+//TODO work on return route to await the insert, cuts calls and saves pain
     async enterScore(data) {
         try {
-            return await db(this.table).insert(data);
+            await db(this.table).insert(data);
+            return await this.getScores(data.chapter)
         } catch (e) {
             return e
         }
