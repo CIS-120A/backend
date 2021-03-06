@@ -16,7 +16,7 @@ class ScoreModel extends BaseModel {
 
     async getScores(chapter) {
         try {
-            return await db(this.table).where({chapter});
+            return await db(this.table).where({chapter}).orderBy('score', 'desc');
         } catch (e) {
             return e
         }
