@@ -36,6 +36,7 @@ module.exports = {
     connection: process.env.DATABASE_URL,
      useNullAsDefault: true,
        ssl: {
+         require: true,
         rejectUnauthorized: false
        },
     migrations: {
