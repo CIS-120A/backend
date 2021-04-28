@@ -6,7 +6,7 @@ exports.seed = async function(knex) {
             chapter: 2
         },
         {
-            term: "address bar",
+            term: "Address Bar",
             definition: "In Computer Concepts, the part of a browser window that displays the location of the current webpage.",
             chapter: 2
         },
@@ -356,7 +356,7 @@ exports.seed = async function(knex) {
             chapter: 2
         },
         {
-            term: "word stem",
+            term: "Word Stem",
             definition: "The base of a word, used in a web search to broaden a search.",
             chapter: 2
         },
