@@ -1,5 +1,6 @@
 const express = require('express');
 const Chapter = require('./chapterModel');
+const Utils = require('./Utils');
 
 let router = express.Router();
 
@@ -13,28 +14,7 @@ router.get('/', async (req, res, next) => {
             })
         }
 
-        const capTerms = async (arr) => {
-            try {
-                arr.term = arr.term.charAt(0).toUpperCase() + arr.term.substr(1).toLowerCase();
-            } catch (e) {
-                 return res.status(500).json({
-                errorMessage: 'error'
-            })
-            }
-        }
-
-        const getData = async () => {
-            try {
-                return await Promise.all(allCards.map(arr => capTerms(arr)));
-            }
-            catch (e) {
-                return res.status(500).json({
-                errorMessage: 'error'
-                })
-            }
-        }
-
-        getData().then(data => {
+        Utils.getData(allCards).then(data => {
             return res.status(200).json(allCards)
         })
     } catch (e) {
@@ -53,28 +33,7 @@ router.get('/:id', async (req, res, next) => {
             })
         }
 
-        const capTerms = async (arr) => {
-            try {
-                arr.term = arr.term.charAt(0).toUpperCase() + arr.term.substr(1).toLowerCase();
-            } catch (e) {
-                 return res.status(500).json({
-                errorMessage: 'error'
-            })
-            }
-        }
-
-        const getData = async () => {
-            try {
-                return await Promise.all(chapter.map(arr => capTerms(arr)));
-            }
-            catch (e) {
-                return res.status(500).json({
-                errorMessage: 'error'
-                })
-            }
-        }
-
-        getData().then(data => {
+        Utils.getData(chapter).then(data => {
             return res.status(200).json(chapter)
         })
     } catch (e) {
